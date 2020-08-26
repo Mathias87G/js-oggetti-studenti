@@ -10,11 +10,11 @@ var studente = {
   "Nome": 'Mario',
   "Cognome": 'Rossi',
   "Età": 50
-}
+};
 // stampare tramite ciclo for in tutte le proprietà di studente
 for (var key in studente) {
   $('#studente').append(key + ': ' + studente[key] + ' ');
-}
+};
 
 // array di studenti
 var classe = [
@@ -38,7 +38,7 @@ var classe = [
 // Ciclo su tutti gli studenti e stampo per ognuno nome e cognome.
 for (var i = 0; i < classe.length; i++) {
     $('#classe').append('<li>' + classe[i].Nome + ' '  + classe[i].Cognome + '</li>');
-}
+};
 
 // Funzione sul button per i prompt nuovo inserimento dati
 $('button').click(
@@ -46,7 +46,7 @@ $('button').click(
     // Dati nuovo studente
     var nome = capitalize(prompt('Inserisci il nome'));
     var cognome = capitalize(prompt('Inserisci il cognome'));
-    var eta = parseInt(prompt('Inserisci l\'età'))
+    var eta = parseInt(prompt('Inserisci l\'età'));
     var nuovoStudente = {
       "Nome": nome,
       "Cognome": cognome,
@@ -61,4 +61,4 @@ $('button').click(
 // funzione per maiuscole nome e cognome
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
-}
+};
