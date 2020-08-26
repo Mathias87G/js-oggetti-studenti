@@ -7,49 +7,58 @@
 
 // Oggetto studente
 var studente = {
-  "nome": 'Mario',
-  "cognome": 'Rossi',
-  "età": 50
+  "Nome": 'Mario',
+  "Cognome": 'Rossi',
+  "Età": 50
 }
 // stampare tramite ciclo for in tutte le proprietà di studente
 for (var key in studente) {
-  console.log(key + ': ' + studente[key]);
+  $('#studente').append(key + ': ' + studente[key] + ' ');
 }
 
 // array di studenti
 var classe = [
   {
-    "nome": 'Maccio',
-    "cognome": 'Capatonda',
-    "età": 40
+    "Nome": 'Maccio',
+    "Cognome": 'Capatonda',
+    "Età": 40
   },
   {
-    "nome": 'Ektor',
-    "cognome": 'Baboden',
-    "età": 40
+    "Nome": 'Ektor',
+    "Cognome": 'Baboden',
+    "Età": 40
   },
   {
-    "nome": 'Anna',
-    "cognome": 'Pannocchia',
-    "età": 40
+    "Nome": 'Anna',
+    "Cognome": 'Pannocchia',
+    "Età": 40
   },
 ];
 
 // Ciclo su tutti gli studenti e stampo per ognuno nome e cognome.
 for (var i = 0; i < classe.length; i++) {
-  // for (var key in classe[i]) {
-    console.log(classe[i].nome + ' '  + classe[i].cognome);
-  // }
+    $('#classe').append('<li>' + classe[i].Nome + ' '  + classe[i].Cognome + '</li>');
 }
 
-// - Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
-var nome = prompt('Inserisci il nome');
-var cognome = prompt('Inserisci il cognome');
-var eta = parseInt(prompt('Inserisci l\'età'))
-var nuovoStudente = {
-  "nome": nome,
-  "cognome": cognome,
-  "età": eta
-};
-classe.push(nuovoStudente);
-console.log(classe);
+// Funzione sul button per i prompt nuovo inserimento dati
+$('button').click(
+  function(){
+    // Dati nuovo studente
+    var nome = capitalize(prompt('Inserisci il nome'));
+    var cognome = capitalize(prompt('Inserisci il cognome'));
+    var eta = parseInt(prompt('Inserisci l\'età'))
+    var nuovoStudente = {
+      "Nome": nome,
+      "Cognome": cognome,
+      "Età": eta
+    };
+    // Inserisco nuovo studente nell'array
+    classe.push(nuovoStudente);
+    $('#classe').append('<li>' + nome + ' '  + cognome + '</li>');
+  }
+);
+
+// funzione per maiuscole nome e cognome
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
